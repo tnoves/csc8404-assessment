@@ -1,0 +1,2 @@
+CSC8404, Advanced Programming in Java, 10
+CSC8103, Distributed Algorithms, 10

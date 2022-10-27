@@ -15,6 +15,8 @@ public class Module {
         return this.credits;
     }
 
+    public String getCode() { return this.code; }
+
     public String toString() {
         return this.code + ", " + this.name + ", " + this.credits;
     }

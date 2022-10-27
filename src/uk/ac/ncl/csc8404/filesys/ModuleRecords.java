@@ -13,4 +13,10 @@ public final class ModuleRecords extends FileReader{
         }
         return modules;
     }
+
+    public void listModules(ArrayList<Module> modules) {
+        for (Module m : modules) {
+            System.out.println(m);
+        }
+    }
 }

@@ -1,2 +1,4 @@
 CSC8404, Advanced Programming in Java, 10
 CSC8103, Distributed Algorithms, 10
+CSC8406, Object-Oriented Programming, 10
+CSC8201, The Challenge of Dependable Systems, 100

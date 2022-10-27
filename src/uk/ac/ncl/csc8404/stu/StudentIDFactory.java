@@ -47,7 +47,7 @@ public abstract class StudentIDFactory implements StudentID {
         StudentID id = studentIDs.get(idString);
 
         if (id != null) {
-            return id;
+            throw new IllegalArgumentException("this id already exists");
         }
 
         id = new ID(idString);

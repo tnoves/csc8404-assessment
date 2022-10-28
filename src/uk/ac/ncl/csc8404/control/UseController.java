@@ -1,8 +1,7 @@
 package uk.ac.ncl.csc8404.control;
 
-import uk.ac.ncl.csc8404.filesys.ModuleRecords;
 import uk.ac.ncl.csc8404.stu.Name;
-import uk.ac.ncl.csc8404.stu.StudentIDFactory;
+import uk.ac.ncl.csc8404.id.StudentIDFactory;
 import uk.ac.ncl.csc8404.stu.UG;
 import uk.ac.ncl.csc8404.filesys.Module;
 
@@ -12,6 +11,7 @@ import java.util.Date;
 public class UseController {
     public static void main(String[] args) {
         UniversityController uc = new UniversityController();
+        uc.displayModules();
         uc.loadModules();
         uc.displayModules();
         System.out.println("END OF SET");
@@ -46,6 +46,10 @@ public class UseController {
 
         uc.loadSupervisors();
         uc.displaySupervisors();
+
+        uc.terminateStudent(StudentIDFactory.makeInstance("g1289"));
+        System.out.println(uc.fetchModule("asdad"));
+
 
     }
 

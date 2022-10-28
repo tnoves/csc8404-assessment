@@ -4,8 +4,18 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * FileReader - Implementation of File.
+ */
+
 public class FileReader implements File{
     public ArrayList<String> list = new ArrayList<>();
+
+    /**
+     * @see uk.ac.ncl.csc8404.filesys.File
+     * Buffered reader which reads and adds each line of a
+     * provided file into an arraylist to be returned.
+     */
     public ArrayList<String> readFile(String filepath) {
         BufferedReader reader;
         try {

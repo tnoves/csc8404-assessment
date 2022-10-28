@@ -66,16 +66,17 @@ public class Name {
      */
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
-        if (!(obj instanceof Name))
+        if (!(obj instanceof Name)) {
             return false;
+        }
 
         final Name name = (Name) obj;
 
-        return firstName.equals(name.firstName)
-                && lastName.equals(lastName);
+        return (firstName.equals(name.firstName) && lastName.equals(name.lastName));
     }
 
     /**
@@ -83,10 +84,10 @@ public class Name {
      */
     @Override
     public int hashCode() {
-        int hc = 51;
+        int hc = 17;
 
-        hc = 29 * hc + firstName.hashCode();
+        hc = 37 * hc + firstName.hashCode();
 
-        return 29 * hc + lastName.hashCode();
+        return (37 * hc + lastName.hashCode());
     }
 }

@@ -1,5 +1,7 @@
 package uk.ac.ncl.csc8404.stu;
 
+import uk.ac.ncl.csc8404.id.StudentID;
+
 import java.util.Date;
 
 /**

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import uk.ac.ncl.csc8404.filesys.Module;
+import uk.ac.ncl.csc8404.id.StudentID;
 
 /**
  * AbstractStudent - abstract (partial) implementation of Student (all but

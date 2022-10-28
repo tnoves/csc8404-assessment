@@ -2,9 +2,10 @@ package uk.ac.ncl.csc8404.tests;
 
 import static org.junit.Assert.*;
 
-import org.junit.BeforeClass;
 import org.junit.Test;
 
+import uk.ac.ncl.csc8404.id.StudentID;
+import uk.ac.ncl.csc8404.id.StudentIDFactory;
 import uk.ac.ncl.csc8404.stu.*;
 import uk.ac.ncl.csc8404.filesys.Module;
 
@@ -51,7 +52,7 @@ public class StudentTest {
         final Name name = new Name("John", "Smith");
         final Date dob = new Date();
         final UG student = new UG(name, dob, null);
-        StudentID id = StudentIDFactory.getInstance("a1234");
+        StudentID id = StudentIDFactory.makeInstance("a1234");
         student.setID(id);
         student.setID(null);
     }
@@ -67,7 +68,7 @@ public class StudentTest {
 
         assertNull(student.getID());
 
-        StudentID id = StudentIDFactory.getInstance("b1234");
+        StudentID id = StudentIDFactory.makeInstance("b1234");
         student.setID(id);
         assertEquals(id, student.getID());
     }

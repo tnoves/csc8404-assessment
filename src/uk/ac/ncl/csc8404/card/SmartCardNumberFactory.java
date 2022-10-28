@@ -78,4 +78,14 @@ public abstract class SmartCardNumberFactory{
     public String toString() {
         return initials + "-" + year + "-" + serial;
     }
+
+    /**
+     * Static method to remove a smartcard number from the mapping.
+     * Essentially freeing that number to be reused.
+     *
+     * @param card the smartcard to be removed
+     */
+    public static void removeNumber(SmartCard card){
+        smartCardNumbers.remove(card.getSmartCardNumber());
+    }
 }

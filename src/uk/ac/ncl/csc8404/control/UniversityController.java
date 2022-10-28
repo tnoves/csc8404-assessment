@@ -1,6 +1,7 @@
 package uk.ac.ncl.csc8404.control;
 
 import uk.ac.ncl.csc8404.card.SmartCard;
+import uk.ac.ncl.csc8404.card.SmartCardNumber;
 import uk.ac.ncl.csc8404.card.SmartCardNumberFactory;
 import uk.ac.ncl.csc8404.filesys.Module;
 import uk.ac.ncl.csc8404.filesys.ModuleRecords;
@@ -70,10 +71,18 @@ public final class UniversityController implements MainInterface{
 
 
     /**
-     * @see uk.ac.ncl.csc8404.control.MainInterface#terminateStudent(StudentID) 
+     * @see uk.ac.ncl.csc8404.control.MainInterface#terminateStudent(StudentID)
+     *
+     * Removes the students smartcard number, student id, and student from the system.
      */
     public void terminateStudent(StudentID id) {
+        Student student = registeredStudents.get(id);
+        // Student may be terminated before issuing of smartcard.
+        if (!(smartCards.get(id) == null)) {
+            SmartCardNumberFactory.removeNumber(smartCards.get(id));
+        }
         registeredStudents.remove(id);
+        StudentIDFactory.removeID(id);
     }
 
     /**
@@ -82,15 +91,11 @@ public final class UniversityController implements MainInterface{
      * @param id the id of the student to generate a smartcard
      *           for.
      * @param serial an arbitrary serial for the id.
-     * @throws NullPointerException if a matching student is not registered.
      * @throws IllegalArgumentException if the smartcard number
      * generated already exists in the system or the conditions are not met
      * for issuing.
      */
-    public void issueSmartCard(StudentID id, int serial) throws NullPointerException {
-        if (registeredStudents.get(id) == null) {
-            throw new NullPointerException("No student with this id exists");
-        }
+    public void issueSmartCard(StudentID id, int serial) {
         Student student = registeredStudents.get(id);
 
         Calendar from = Calendar.getInstance();
@@ -175,5 +180,27 @@ public final class UniversityController implements MainInterface{
         for (String s : supervisors) {
             System.out.println(s);
         }
+    }
+
+    /**
+     * Method to fetch a stored student record.
+     * Added for testing.
+     *
+     * @param id of the student to fetch.
+     * @return the student.
+     */
+    public Student getStudent(StudentID id) {
+        return registeredStudents.get(id);
+    }
+
+    /**
+     * Method to fetch a stored smartcard.
+     * Added for testing.
+     *
+     * @param id of the students card to fetch.
+     * @return the smartcard.
+     */
+    public SmartCard getSmartcard(StudentID id) {
+        return smartCards.get(id);
     }
 }

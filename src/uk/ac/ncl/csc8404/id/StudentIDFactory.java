@@ -96,4 +96,14 @@ public abstract class StudentIDFactory implements StudentID {
 
         return id;
     }
+
+    /**
+     * Static method to remove a student id from the mapping.
+     * Essentially freeing that id to be reused.
+     *
+     * @param id the id to be removed
+     */
+    public static void removeID(StudentID id) {
+        studentIDs.remove(id.toString());
+    }
 }

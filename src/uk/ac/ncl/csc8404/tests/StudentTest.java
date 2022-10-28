@@ -52,7 +52,7 @@ public class StudentTest {
         final Name name = new Name("John", "Smith");
         final Date dob = new Date();
         final UG student = new UG(name, dob, null);
-        StudentID id = StudentIDFactory.makeInstance("a1234");
+        StudentID id = StudentIDFactory.makeInstance("a1239");
         student.setID(id);
         student.setID(null);
     }
